@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="moderne">
+  <title>Birr al-Walidayn: Honouring Parents in Islam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (User theme mapped to Moderne structure) */
+      --background: #FAF5EB;               /* Warm cream parchment */
+      --surface-container-low: #FBF8F1;    /* Off-white ivory for nested callouts */
+      --surface-ochre: #E9CD92;            /* Warm golden ochre inner cards */
+      --surface-sage: #C7DCD7;             /* Muted sage-teal inner cards */
+      --surface-container: #EFE6D4;        /* Soft parchment sand for hover/neutral pills */
+      --surface-container-high: #E4D8C0;   /* Toasted parchment */
+
+      /* Ink */
+      --on-surface: #1E221F;               /* Rich deep charcoal-ink */
+      --on-surface-variant: #4C4F4A;       /* Muted ink for captions and labels */
+
+      /* Rules */
+      --outline: #252825;                  /* Crisp 1px hairline border ink */
+      --outline-variant: #D8CEB8;          /* Warm parchment divider */
+
+      /* Accents */
+      --primary: #1B5E58;                  /* Deep teal primary accent */
+      --on-primary: #FBF8F1;               /* Ivory text on deep teal */
+      --primary-container: #C7DCD7;        /* Muted sage-teal */
+      --on-primary-container: #153E3A;     /* Deep teal ink on sage */
+      --secondary: #8E3B1E;                /* Rich burnt terracotta accent */
+      --tertiary: #E9CD92;                 /* Warm golden ochre (fills/orbs only) */
+      --error: #962231;                    /* Deep crimson */
+      --on-error: #FBF8F1;
+
+      /* Semantic */
+      --positive: #1B5E58;
+      --positive-bg: #DCECE8;
+      --warning: #8A5A0A;
+      --error-bg: #F6E2E4;
+      --focus: #1B5E58;
+
+      /* Data & Orbs */
+      --data-1: #1B5E58;
+      --data-2: #B54B27;
+      --data-3: #D5AC53;
+      --data-4: #6B4A2E;
+      --data-context: #A89E89;
+
+      /* Typography */
+      --font-headline: 'Outfit', sans-serif;
+      --font-body: 'Lexend', sans-serif;
+      --font-label: 'Outfit', sans-serif;
+      --font-arabic: 'Noto Sans Arabic', sans-serif;
+
+      /* Narrative Type Scale */
+      --display-size:  clamp(2.25rem, 1.4rem + 3.4vw, 3.85rem);
+      --headline-size: clamp(1.625rem, 1.2rem + 1.8vw, 2.35rem);
+      --subhead-size:  clamp(1.15rem, 1.05rem + 0.45vw, 1.375rem);
+      --body-size:     clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+      --label-size:    clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Shape: Diagonally opposite rounded corners & capsule pills */
+      --rounded: 9999px;
+      --rounded-lg: 2rem 0.5rem 2rem 0.5rem;
+      --leaf-mirror: 0.5rem 2rem 0.5rem 2rem;
+      --rounded-sm: 1rem 0.35rem 1rem 0.35rem;
+      --rounded-full: 9999px;
+
+      /* Effects */
+      --hairline: 1px solid var(--outline);
+      --hairline-soft: 1px solid var(--outline-variant);
+      --orb-r: 2.4rem;
+      --orb-r-small: 1.85rem;
+      --orb-clearance: 10.5rem;
+      --orbs:
+        radial-gradient(circle at calc(100% - 4.2rem) 4.4rem, color-mix(in srgb, var(--data-2) 85%, transparent) var(--orb-r-small), transparent calc(var(--orb-r-small) + 1px)),
+        radial-gradient(circle at calc(100% - 6.3rem) 3.4rem, color-mix(in srgb, var(--primary) 80%, transparent) var(--orb-r), transparent calc(var(--orb-r) + 1px)),
+        radial-gradient(circle at calc(100% - 8.9rem) 4.3rem, var(--tertiary) var(--orb-r), transparent calc(var(--orb-r) + 1px));
+
+      /* Spacing scale */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 5.5rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Reading Progress Bar (Fixed thin bar at very top) */
+    .reading-progress-wrap {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: var(--surface-container-low);
+      border-bottom: var(--hairline-soft);
+      padding: var(--space-xs) var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .reading-progress-track {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: var(--outline-variant);
+    }
+    .reading-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      transition: width var(--dur-micro) linear;
+    }
+    .nav-brand {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--on-surface);
+      white-space: nowrap;
+    }
+    .nav-pills {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: var(--space-xs) 0;
+    }
+    .nav-pills::-webkit-scrollbar { display: none; }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface-variant);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--rounded);
+      border: 1px solid transparent;
+      white-space: nowrap;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .nav-pill:hover {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .nav-pill.active {
+      background-color: var(--on-surface);
+      color: var(--surface-container-low);
+    }
+    .progress-pct {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    /* Main Container */
+    .page-grid {
+      display: grid;
+      gap: var(--space-2xl);
+      padding: calc(3.75rem + var(--space-lg)) var(--space-lg) var(--space-3xl);
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Hero Title Block (Moderne Multiplied Orbs) */
+    .title-block {
+      background-color: var(--surface-container-low);
+      background-image: var(--orbs);
+      background-blend-mode: multiply;
+      background-repeat: no-repeat;
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+    }
+    .title-block-inner {
+      padding-inline-end: var(--orb-clearance);
+    }
+    .kicker-stamp {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--secondary);
+      color: var(--on-primary);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--rounded);
+      margin-bottom: var(--space-md);
+    }
+    h1 {
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.02em;
+      margin: 0 0 var(--space-md);
+      color: var(--on-surface);
+      max-width: 18ch;
+    }
+    h1 .accent-word {
+      color: var(--secondary);
+    }
+    .hero-lede {
+      font-size: var(--subhead-size);
+      color: var(--on-surface-variant);
+      max-width: 60ch;
+      margin: 0 0 var(--space-lg);
+      line-height: 1.55;
+    }
+
+    /* Key Metrics Row (Alternating Leaf Cards) */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+    .leaf {
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      background: var(--surface-ochre);
+      color: var(--on-surface);
+    }
+    .leaf--sage {
+      border-radius: var(--leaf-mirror);
+      background: var(--surface-sage);
+    }
+    .leaf--ivory {
+      background: var(--surface-container-low);
+    }
+    .leaf-mirror {
+      border-radius: var(--leaf-mirror);
+    }
+    .stat-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+    .stat-value {
+      font-family: var(--font-headline);
+      font-size: clamp(1.75rem, 1.3rem + 1.5vw, 2.35rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--on-surface);
+      margin-bottom: var(--space-xs);
+    }
+    .stat-caption {
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    /* Section Architecture */
+    .chapter-section {
+      border-top: var(--hairline-soft);
+      padding-top: var(--space-2xl);
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .section-header {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .section-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-radius: var(--rounded-full);
+      background: var(--on-surface);
+      color: var(--surface-container-low);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+    }
+    .chip--soft {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      border: var(--hairline);
+    }
+    h2 {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .section-intro {
+      max-width: 65ch;
+      margin: 0;
+      color: var(--on-surface-variant);
+    }
+
+    /* Asymmetric 2-column grids */
+    .split-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+    .split-grid--reverse {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    }
+
+    /* Nested Callout (Off-white ivory inside ochre/sage cards) */
+    .ivory-callout {
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded-sm);
+      padding: var(--space-lg);
+    }
+    .ivory-callout h3 {
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      font-weight: 600;
+      margin: 0 0 var(--space-sm);
+      color: var(--on-surface);
+    }
+
+    /* Arabic Text & Verse Block */
+    .arabic-line {
+      font-family: var(--font-arabic);
+      font-size: 1.35rem;
+      line-height: 1.9;
+      direction: rtl;
+      text-align: right;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-sm);
+    }
+    .quote-text {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-sm);
+      line-height: 1.55;
+    }
+    .source-tag {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Capsule Pill Tabs */
+    .pill-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .pill-tab {
+      min-height: 44px;
+      padding: 0.5rem 1.15rem;
+      border-radius: var(--rounded);
+      border: var(--hairline);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-family: var(--font-label);
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .pill-tab:hover {
+      background: var(--surface-container);
+    }
+    .pill-tab.active {
+      background: var(--on-surface);
+      color: var(--surface-container-low);
+    }
+
+    /* Primary & Secondary Pill Buttons */
+    .btn {
+      min-height: 44px;
+      border-radius: var(--rounded);
+      padding: 0.6rem 1.35rem;
+      font-family: var(--font-label);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border: var(--hairline);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--on-primary-container);
+    }
+    .btn-primary:disabled {
+      opacity: 0.48;
+      cursor: not-allowed;
+    }
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--on-primary);
+      border-color: var(--secondary);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--on-surface);
+      border-color: var(--on-surface);
+    }
+    .btn-ghost {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+    }
+    .btn-ghost:hover:not(:disabled) {
+      background: var(--surface-container);
+    }
+
+    /* Interactive Paired-Commands Schematic */
+    .pair-list {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .pair-btn {
+      width: 100%;
+      text-align: left;
+      padding: var(--space-md);
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded-sm);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      min-height: 44px;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .pair-btn:hover {
+      background: var(--surface-container);
+    }
+    .pair-btn.active {
+      background: var(--on-surface);
+      color: var(--surface-container-low);
+    }
+    .pair-btn.active .pair-sub {
+      color: var(--surface-sage);
+    }
+    .pair-title {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .pair-sub {
+      font-size: 0.85rem;
+      color: var(--on-surface-variant);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* 4-Step Interactive Mother Priority Dialogue */
+    .stepper-bar {
+      display: flex;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-md);
+    }
+    .step-node {
+      min-height: 44px;
+      flex: 1 1 110px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      border: var(--hairline);
+      background: var(--surface-container-low);
+      cursor: pointer;
+      font-family: var(--font-label);
+      font-weight: 600;
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .step-node:hover {
+      background: var(--surface-container);
+    }
+    .step-node.active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Interactive Flipcards Grid */
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .flip-card {
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      background: var(--surface-container-low);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-md);
+      min-height: 220px;
+      text-align: left;
+      transition: background-color var(--dur-short) var(--ease-out);
+    }
+    .flip-card:nth-child(even) {
+      border-radius: var(--leaf-mirror);
+    }
+    .flip-card:hover {
+      background: var(--surface-container);
+    }
+    .flip-card.flipped {
+      background: var(--surface-sage);
+    }
+    .flip-card.flipped.ochre-flip {
+      background: var(--surface-ochre);
+    }
+    .flip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+    }
+    .flip-title {
+      font-family: var(--font-headline);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: var(--space-xs) 0;
+      color: var(--on-surface);
+    }
+    .flip-body {
+      font-size: 0.95rem;
+      color: var(--on-surface-variant);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .flip-card.flipped .flip-body {
+      color: var(--on-surface);
+    }
+    .flip-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--secondary);
+      border-top: var(--hairline-soft);
+      padding-top: var(--space-sm);
+    }
+
+    /* Interactive Checklist */
+    .checklist-grid {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded-sm);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .check-item:hover {
+      background: var(--surface-container);
+    }
+    .check-item.checked {
+      background: var(--positive-bg);
+    }
+    .check-box {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border-radius: 6px;
+      border: var(--hairline);
+      background: var(--surface-container-low);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      color: var(--on-primary);
+    }
+    .check-item.checked .check-box {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    /* Reference Table (No vertical rules) */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded-sm);
+      padding: var(--space-md);
+    }
+    table.ref-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9375rem;
+    }
+    .ref-table th {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 2px solid var(--outline);
+    }
+    .ref-table td {
+      padding: var(--space-md);
+      border-bottom: var(--hairline-soft);
+      vertical-align: top;
+    }
+    .ref-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    .ref-table tbody tr:hover {
+      background: var(--surface-container);
+    }
+
+    /* Accordion (Degrees of Uqooq) */
+    .accordion {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .acc-item {
+      border: var(--hairline);
+      border-radius: var(--rounded-sm);
+      background: var(--surface-container-low);
+      overflow: hidden;
+    }
+    .acc-trigger {
+      width: 100%;
+      min-height: 48px;
+      padding: var(--space-md) var(--space-lg);
+      background: transparent;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      font-family: var(--font-headline);
+      font-size: 1.075rem;
+      font-weight: 600;
+      color: var(--on-surface);
+    }
+    .acc-trigger:hover {
+      background: var(--surface-container);
+    }
+    .acc-trigger[aria-expanded="true"] {
+      background: var(--surface-ochre);
+      border-bottom: var(--hairline);
+    }
+    .acc-panel {
+      display: none;
+      padding: var(--space-lg);
+      background: var(--surface-container-low);
+    }
+    .acc-panel.open {
+      display: block;
+    }
+
+    /* SVG Schematic & Interactive Reward Map */
+    .svg-box {
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded-sm);
+      padding: var(--space-md);
+    }
+    .act-pill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+    .act-btn {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      background: var(--surface-container-low);
+      text-align: left;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .act-btn:hover { background: var(--surface-container); }
+    .act-btn.active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Quiz Module */
+    .quiz-shell {
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      background: var(--surface-sage);
+      padding: var(--space-xl);
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .quiz-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-md);
+    }
+    .quiz-progress-dots {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .q-dot {
+      width: 28px;
+      height: 8px;
+      border-radius: var(--rounded);
+      background: var(--surface-container-low);
+      border: var(--hairline);
+    }
+    .q-dot.current {
+      background: var(--on-surface);
+    }
+    .q-dot.done-right {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+    .q-dot.done-wrong {
+      background: var(--secondary);
+      border-color: var(--secondary);
+    }
+    .score-badge {
+      font-family: var(--font-label);
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      background: var(--on-surface);
+      color: var(--surface-container-low);
+      padding: 0.4rem 1rem;
+      border-radius: var(--rounded);
+    }
+    .quiz-card {
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded-sm);
+      padding: var(--space-xl);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .quiz-q-text {
+      font-family: var(--font-headline);
+      font-size: clamp(1.2rem, 1.05rem + 0.5vw, 1.45rem);
+      font-weight: 600;
+      line-height: 1.3;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .quiz-options {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .quiz-opt {
+      width: 100%;
+      min-height: 52px;
+      padding: var(--space-md) var(--space-lg);
+      border: var(--hairline);
+      border-radius: var(--rounded-sm);
+      background: var(--background);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .quiz-opt:hover:not(:disabled) {
+      background: var(--surface-container);
+    }
+    .quiz-opt:disabled {
+      cursor: default;
+    }
+    .quiz-opt.is-correct {
+      background: var(--positive-bg);
+      border-color: var(--positive);
+    }
+    .quiz-opt.is-wrong {
+      background: var(--error-bg);
+      border-color: var(--error);
+    }
+    .opt-letter {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: var(--rounded);
+      border: var(--hairline);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-label);
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: var(--surface-container-low);
+    }
+    .quiz-opt.is-correct .opt-letter {
+      background: var(--positive);
+      color: var(--on-primary);
+      border-color: var(--positive);
+    }
+    .quiz-opt.is-wrong .opt-letter {
+      background: var(--error);
+      color: var(--on-error);
+      border-color: var(--error);
+    }
+    .quiz-feedback {
+      border: var(--hairline);
+      border-radius: var(--rounded-sm);
+      padding: var(--space-md) var(--space-lg);
+      display: none;
+      gap: var(--space-xs);
+    }
+    .quiz-feedback.show {
+      display: grid;
+    }
+    .quiz-feedback.fb-right {
+      background: var(--positive-bg);
+      border-color: var(--positive);
+    }
+    .quiz-feedback.fb-wrong {
+      background: var(--error-bg);
+      border-color: var(--error);
+    }
+    .quiz-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+      padding-top: var(--space-sm);
+    }
+
+    /* Footer Sources Note */
+    .sources-footer {
+      border-top: var(--hairline);
+      padding-top: var(--space-xl);
+      display: grid;
+      gap: var(--space-sm);
+      color: var(--on-surface-variant);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 820px) {
+      .split-grid, .split-grid--reverse {
+        grid-template-columns: 1fr;
+      }
+      .title-block-inner {
+        padding-inline-end: 0;
+        padding-top: 5.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: calc(3.75rem + var(--space-md)) var(--space-md) var(--space-2xl);
+        gap: var(--space-xl);
+      }
+      .title-block, .leaf, .quiz-shell, .quiz-card {
+        padding: var(--space-lg);
+      }
+      .nav-brand {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Reading Progress Bar & Quick Chapter Pills -->
+  <nav class="reading-progress-wrap" aria-label="Chapter navigation and reading progress">
+    <span class="nav-brand">Birr al-Walidayn</span>
+    <div class="nav-pills" id="nav-pills">
+      <a class="nav-pill active" href="#sec-rank">1. Rank</a>
+      <a class="nav-pill" href="#sec-mothers">2. Mothers</a>
+      <a class="nav-pill" href="#sec-practice">3. Practice</a>
+      <a class="nav-pill" href="#sec-impact">4. Impact</a>
+      <a class="nav-pill" href="#sec-tawbah">5. Repentance</a>
+      <a class="nav-pill" href="#sec-quiz">6. Quiz</a>
+    </div>
+    <span class="progress-pct" id="progress-pct" aria-live="polite">0% read</span>
+    <div class="reading-progress-track" aria-hidden="true">
+      <div class="reading-progress-fill" id="reading-progress-fill"></div>
+    </div>
+  </nav>
+
+  <main class="page-grid">
+
+    <!-- HERO / OPENING TITLE BLOCK -->
+    <header class="title-block" id="top">
+      <div class="title-block-inner">
+        <span class="kicker-stamp">Quran &amp; Hadith Study Guide</span>
+        <h1>Honouring Parents in <span class="accent-word">Islam</span></h1>
+        <p class="hero-lede">
+          In Islam, devotion to parents (<em>Birr al-Walidayn</em>) is not treated as optional cultural politeness. The Quran places it immediately after worshipping Allah alone, and the Prophetic traditions rank it among the highest acts of worship—even ahead of going out for Jihad—with duties that continue long after parents pass away.
+        </p>
+      </div>
+
+      <div class="stat-row">
+        <article class="leaf">
+          <div class="stat-label">Spiritual Rank</div>
+          <div class="stat-value">Second Only to Tawhid</div>
+          <p class="stat-caption">Commanded immediately after worshipping Allah alone (Al-Isra 17:23) and second only to timely Salah (Sahih Bukhari 5970).</p>
+        </article>
+        <article class="leaf leaf--sage">
+          <div class="stat-label">Maternal Priority</div>
+          <div class="stat-value">3× Before the Father</div>
+          <p class="stat-caption">The Prophet repeated &ldquo;Your mother&rdquo; three consecutive times before naming the father (Biharul Anwar 74:49).</p>
+        </article>
+        <article class="leaf">
+          <div class="stat-label">Continuity of Duty</div>
+          <div class="stat-value">Open Beyond Death</div>
+          <p class="stat-caption">Du&rsquo;a, charity, settling debts, and honouring their friends keep raising their rank in Paradise (Muslim 1631, 2552).</p>
+        </article>
+      </div>
+    </header>
+
+    <!-- SECTION 1: DIVINE COMMANDMENTS & SUPREME RANK -->
+    <section class="chapter-section" id="sec-rank" aria-labelledby="h-rank">
+      <div class="section-header">
+        <div class="section-meta">
+          <span class="chip">Section 01</span>
+          <span class="chip chip--soft">Quran &amp; Sunnah Foundations</span>
+        </div>
+        <h2 id="h-rank">Why Devotion to Parents Sits Directly Beside Worshipping Allah</h2>
+        <p class="section-intro">
+          Across the Quran and both Sunni and Shia Hadith collections, kindness and humility toward parents are inseparable from gratitude to the Creator. Explore the foundational verses and see how the Prophetic traditions rank parental care against major acts of devotion.
+        </p>
+      </div>
+
+      <div class="split-grid">
+        <!-- Interactive 1A: Capsule Pill Tabs for Quranic Commandments -->
+        <div class="leaf leaf--sage">
+          <div class="stat-label">Interactive Verse Explorer</div>
+          <div class="pill-tabs" role="tablist" aria-label="Quranic verses on parents">
+            <button type="button" class="pill-tab active" role="tab" aria-selected="true" id="vtab-isra" onclick="selectVerse('isra')">Al-Isra 17:23–24</button>
+            <button type="button" class="pill-tab" role="tab" aria-selected="false" id="vtab-luqman" onclick="selectVerse('luqman')">Luqman 31:14–15</button>
+            <button type="button" class="pill-tab" role="tab" aria-selected="false" id="vtab-maryam" onclick="selectVerse('maryam')">Maryam 19:12–32</button>
+          </div>
+          <div class="ivory-callout" id="verse-panel" aria-live="polite">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Interactive 1B: Paired Obligations & Jihad Priority Selector -->
+        <div class="leaf">
+          <div class="stat-label">Interactive Rank &amp; Priority Explorer</div>
+          <p style="margin-top:0; font-size:0.95rem;">Select a principle to see how the Hadith pair duties together and place parental care above voluntary Jihad.</p>
+          <div class="pair-list" role="group" aria-label="Hadith rankings and paired duties">
+            <button type="button" class="pair-btn active" id="pbtn-deeds" onclick="selectPair('deeds')">
+              <div>
+                <span class="pair-title">1. The Most Beloved Deeds</span>
+                <span class="pair-sub">Salah on time &rarr; Birr al-Walidayn &rarr; Jihad</span>
+              </div>
+              <i data-lucide="chevron-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="pair-btn" id="pbtn-jihad" onclick="selectPair('jihad')">
+              <div>
+                <span class="pair-title">2. Staying vs. Going to Jihad</span>
+                <span class="pair-sub">&ldquo;In both of them, strive (do Jihad)&rdquo;</span>
+              </div>
+              <i data-lucide="chevron-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" class="pair-btn" id="pbtn-paired" onclick="selectPair('paired')">
+              <div>
+                <span class="pair-title">3. Three Inseparable Pairs</span>
+                <span class="pair-sub">Imam al-Ridha&rsquo;s principle on linked worship</span>
+              </div>
+              <i data-lucide="chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="ivory-callout" id="pair-detail" style="margin-top: var(--space-md);" aria-live="polite">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: UNIQUE STATUS & ELEVATED RIGHTS OF MOTHERS -->
+    <section class="chapter-section" id="sec-mothers" aria-labelledby="h-mothers">
+      <div class="section-header">
+        <div class="section-meta">
+          <span class="chip">Section 02</span>
+          <span class="chip chip--soft">Maternal &amp; Paternal Rights</span>
+        </div>
+        <h2 id="h-mothers">Why Mothers Hold Triple Priority—and What Each Parent Is Owed</h2>
+        <p class="section-intro">
+          Surah Luqman (31:14) highlights what mothers endure: carrying the child in <em>&ldquo;weakness upon weakness&rdquo;</em> followed by two years of weaning. The Sunnah translates that sacrifice into an unmatched rank—while also defining distinct, respectful boundaries for fathers and for parents who are difficult or non-Muslim.
+        </p>
+      </div>
+
+      <!-- Interactive 2A: 4-Step Dialogue Stepper -->
+      <div class="leaf">
+        <div class="stat-label">Interactive Hadith Dialogue — Step Through the Four Questions</div>
+        <div class="stepper-bar" role="group" aria-label="Prophetic dialogue on who deserves kindness">
+          <button type="button" class="step-node active" id="mstep-1" onclick="selectMotherStep(1)">1st Question</button>
+          <button type="button" class="step-node" id="mstep-2" onclick="selectMotherStep(2)">2nd Question</button>
+          <button type="button" class="step-node" id="mstep-3" onclick="selectMotherStep(3)">3rd Question</button>
+          <button type="button" class="step-node" id="mstep-4" onclick="selectMotherStep(4)">4th Question</button>
+        </div>
+        <div class="ivory-callout" id="mother-step-panel" aria-live="polite">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Interactive 2B: Flipcards for Special Cases & Distinct Rights -->
+      <div>
+        <div class="stat-label" style="margin-bottom: var(--space-sm);">Click Any Card to Reveal the Hadith Evidence &amp; Practical Lesson</div>
+        <div class="flip-grid">
+          <button type="button" class="flip-card" id="flip-0" onclick="toggleFlip(0)" aria-pressed="false">
+            <div>
+              <span class="flip-badge"><i data-lucide="heart-handshake" aria-hidden="true"></i> Gate to Forgiveness</span>
+              <h3 class="flip-title">&ldquo;If Only His Mother Were Alive&rdquo;</h3>
+              <p class="flip-body" id="flip-body-0">A man confessed he had committed every grave evil and asked if repentance was possible. Tap to read the Prophet&rsquo;s response.</p>
+            </div>
+            <div class="flip-footer">
+              <span id="flip-cta-0">Reveal Hadith</span>
+              <i data-lucide="rotate-cw" aria-hidden="true"></i>
+            </div>
+          </button>
+
+          <button type="button" class="flip-card ochre-flip" id="flip-1" onclick="toggleFlip(1)" aria-pressed="false">
+            <div>
+              <span class="flip-badge"><i data-lucide="shield-check" aria-hidden="true"></i> Father&rsquo;s Rights</span>
+              <h3 class="flip-title">Four Etiquettes Owed to a Father</h3>
+              <p class="flip-body" id="flip-body-1">How should a son or daughter speak, walk, sit, and protect a father&rsquo;s honour in public? Tap to reveal the four rules.</p>
+            </div>
+            <div class="flip-footer">
+              <span id="flip-cta-1">Reveal Hadith</span>
+              <i data-lucide="rotate-cw" aria-hidden="true"></i>
+            </div>
+          </button>
+
+          <button type="button" class="flip-card" id="flip-2" onclick="toggleFlip(2)" aria-pressed="false">
+            <div>
+              <span class="flip-badge"><i data-lucide="scale" aria-hidden="true"></i> Non-Muslim or Unfair Parents</span>
+              <h3 class="flip-title">What If Parents Disagree With Your Faith?</h3>
+              <p class="flip-body" id="flip-body-2">Asma bint Abi Bakr asked the Prophet whether she could maintain kind ties with her polytheist mother. Tap to read the ruling.</p>
+            </div>
+            <div class="flip-footer">
+              <span id="flip-cta-2">Reveal Hadith</span>
+              <i data-lucide="rotate-cw" aria-hidden="true"></i>
+            </div>
+          </button>
+
+          <button type="button" class="flip-card ochre-flip" id="flip-3" onclick="toggleFlip(3)" aria-pressed="false">
+            <div>
+              <span class="flip-badge"><i data-lucide="repeat" aria-hidden="true"></i> Generational Return</span>
+              <h3 class="flip-title">As You Sow, So Shall You Reap</h3>
+              <p class="flip-body" id="flip-body-3">Does how you treat your parents at 18 affect your own future family? Tap to see the Prophetic principle.</p>
+            </div>
+            <div class="flip-footer">
+              <span id="flip-cta-3">Reveal Hadith</span>
+              <i data-lucide="rotate-cw" aria-hidden="true"></i>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PRACTICAL DUTIFULNESS IN LIFE & AFTER PASSING -->
+    <section class="chapter-section" id="sec-practice" aria-labelledby="h-practice">
+      <div class="section-header">
+        <div class="section-meta">
+          <span class="chip">Section 03</span>
+          <span class="chip chip--soft">Everyday Action &amp; Legacy</span>
+        </div>
+        <h2 id="h-practice">Practical Birr al-Walidayn: While They Live &amp; After They Pass</h2>
+        <p class="section-intro">
+          Imam as-Sadiq defined true excellence (<em>Ihsan</em>) toward parents as accompanying them gracefully and anticipating their needs before they ever have to ask. And when parents pass away, the door of dutifulness stays wide open.
+        </p>
+      </div>
+
+      <!-- Interactive 3A: Pill Toggle (Living vs After Passing) with Interactive Checklist -->
+      <div class="leaf leaf--sage">
+        <div class="split-grid">
+          <div>
+            <div class="stat-label">Interactive Action Guide</div>
+            <div class="pill-tabs" role="tablist" aria-label="Life stage practices">
+              <button type="button" class="pill-tab active" role="tab" aria-selected="true" id="ltab-living" onclick="selectLifeStage('living')">While They Are Alive</button>
+              <button type="button" class="pill-tab" role="tab" aria-selected="false" id="ltab-passed" onclick="selectLifeStage('passed')">After Their Passing</button>
+            </div>
+            <div class="ivory-callout" id="life-stage-summary">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div>
+            <div class="stat-label" id="checklist-heading">Self-Reflection Practice Tracker (Click to Mark)</div>
+            <div class="checklist-grid" id="practice-checklist">
+              <!-- Populated by JS -->
+            </div>
+            <p id="checklist-counter" style="margin: var(--space-sm) 0 0; font-size: 0.875rem; font-weight: 600; color: var(--primary);"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 3B: Filterable Reference Table -->
+      <div>
+        <div class="section-meta" style="justify-content: space-between; margin-bottom: var(--space-sm);">
+          <span class="stat-label" style="margin:0;">Filterable Quran &amp; Hadith Practice Matrix</span>
+          <div class="pill-tabs" style="margin:0;" role="group" aria-label="Filter reference table">
+            <button type="button" class="pill-tab active" id="ftab-all" onclick="filterMatrix('all')">All</button>
+            <button type="button" class="pill-tab" id="ftab-speech" onclick="filterMatrix('speech')">Speech &amp; Gaze</button>
+            <button type="button" class="pill-tab" id="ftab-service" onclick="filterMatrix('service')">Daily Service</button>
+            <button type="button" class="pill-tab" id="ftab-after" onclick="filterMatrix('after')">After Death</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th scope="col">Practical Duty</th>
+                <th scope="col">Boundary / What to Avoid</th>
+                <th scope="col">Primary Source</th>
+              </tr>
+            </thead>
+            <tbody id="matrix-tbody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: IMPACT ON THIS LIFE & THE HEREAFTER -->
+    <section class="chapter-section" id="sec-impact" aria-labelledby="h-impact">
+      <div class="section-header">
+        <div class="section-meta">
+          <span class="chip">Section 04</span>
+          <span class="chip chip--soft">Dunya &amp; Akhirah Outcomes</span>
+        </div>
+        <h2 id="h-impact">How Honouring Parents Reshapes Both This World and the Next</h2>
+        <p class="section-intro">
+          The sources connect kindness toward parents with concrete worldly blessings—extended lifespan and increased sustenance—and extraordinary spiritual rewards in the Hereafter, starting from something as quiet as a compassionate look.
+        </p>
+      </div>
+
+      <div class="split-grid--reverse split-grid">
+        <!-- Interactive 4A: Dual-Horizon Impact Switcher -->
+        <div class="leaf">
+          <div class="stat-label">Impact Explorer</div>
+          <div class="pill-tabs" role="tablist" aria-label="Worldly vs Hereafter impact">
+            <button type="button" class="pill-tab active" role="tab" aria-selected="true" id="itab-dunya" onclick="selectHorizon('dunya')">Worldly Blessings (Dunya)</button>
+            <button type="button" class="pill-tab" role="tab" aria-selected="false" id="itab-akhirah" onclick="selectHorizon('akhirah')">Eternal Rewards (Akhirah)</button>
+          </div>
+          <div class="ivory-callout" id="horizon-panel" aria-live="polite">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Interactive 4B: Small Deeds -> Spiritual Scale Explorer + Vector Visual -->
+        <div class="leaf leaf--sage">
+          <div class="stat-label">Small Act &rarr; Immense Reward Mapper</div>
+          <p style="margin-top:0; font-size:0.9375rem;">Click an everyday action below to see its corresponding Hadith promise and visual scale:</p>
+          <div class="act-pill-grid" role="group" aria-label="Select a small act">
+            <button type="button" class="act-btn active" id="act-gaze" onclick="selectRewardAct('gaze')">
+              <i data-lucide="eye" aria-hidden="true"></i> Loving Gaze
+            </button>
+            <button type="button" class="act-btn" id="act-doors" onclick="selectRewardAct('doors')">
+              <i data-lucide="door-open" aria-hidden="true"></i> Daily Obedience
+            </button>
+            <button type="button" class="act-btn" id="act-dua" onclick="selectRewardAct('dua')">
+              <i data-lucide="sparkles" aria-hidden="true"></i> Child&rsquo;s Du&rsquo;a
+            </button>
+            <button type="button" class="act-btn" id="act-throne" onclick="selectRewardAct('throne')">
+              <i data-lucide="sun" aria-hidden="true"></i> Gentle Loyalty
+            </button>
+          </div>
+
+          <div class="svg-box" style="margin-top: var(--space-md);">
+            <svg viewBox="0 0 460 120" width="100%" height="auto" aria-hidden="true" style="display:block;">
+              <rect x="8" y="14" width="142" height="92" rx="14" fill="var(--surface-ochre)" stroke="var(--outline)" stroke-width="1.25" />
+              <text x="79" y="50" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="600" fill="var(--on-surface-variant)">EVERYDAY ACT</text>
+              <text id="svg-act-label" x="79" y="76" text-anchor="middle" font-family="Outfit, sans-serif" font-size="14" font-weight="700" fill="var(--on-surface)">Loving Gaze</text>
+
+              <line x1="156" y1="60" x2="214" y2="60" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 3" />
+              <polygon points="214,55 224,60 214,65" fill="var(--primary)" />
+
+              <rect x="230" y="14" width="222" height="92" rx="14" fill="var(--primary)" stroke="var(--outline)" stroke-width="1.25" />
+              <text x="341" y="48" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="600" fill="var(--surface-sage)">PROMISED REWARD</text>
+              <text id="svg-reward-label" x="341" y="76" text-anchor="middle" font-family="Outfit, sans-serif" font-size="14" font-weight="700" fill="var(--on-primary)">Accepted Hajj Reward</text>
+            </svg>
+            <div id="reward-act-detail" style="margin-top: var(--space-sm); font-size: 0.9375rem;" aria-live="polite">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CONSEQUENCES OF UQOOQ & PATH TO REPENTANCE -->
+    <section class="chapter-section" id="sec-tawbah" aria-labelledby="h-tawbah">
+      <div class="section-header">
+        <div class="section-meta">
+          <span class="chip">Section 05</span>
+          <span class="chip chip--soft">Boundaries &amp; Mercy</span>
+        </div>
+        <h2 id="h-tawbah">Disobedience (Uqooq) Is a Major Sin—Yet Repentance Never Closes</h2>
+        <p class="section-intro">
+          The Prophet sat upright to warn against <em>Uqooq al-Walidayn</em>, placing it right beside <em>Shirk</em>. Yet even if someone deeply regrets mistreating their parents—or realizes it after their parents have passed away—Islamic theology insists on hope, never despair.
+        </p>
+      </div>
+
+      <div class="split-grid">
+        <!-- Interactive 5A: Accordion of Uqooq Consequences -->
+        <div>
+          <div class="stat-label" style="margin-bottom: var(--space-sm);">Click to Expand — What Counts as Uqooq &amp; Its Warnings</div>
+          <div class="accordion">
+            <div class="acc-item">
+              <button type="button" class="acc-trigger" aria-expanded="true" id="acc-btn-0" onclick="toggleAccordion(0)">
+                <span>1. Even &ldquo;Uff&rdquo; or a Stern, Hateful Look</span>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="acc-panel open" id="acc-panel-0">
+                <p style="margin-top:0;">Ibn Hajar defined mistreatment of parents as any word or deed causing them hurt without legitimate religious justification (Fath al-Bari 10/406). Imam as-Sadiq explained that uttering &ldquo;uff&rdquo; is the mildest form of ill conduct, and that casting a hard, stern gaze—or a look of hatred even if parents were unfair—can prevent a person&rsquo;s prayers from being accepted (Al-Kafi 4:50).</p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <button type="button" class="acc-trigger" aria-expanded="false" id="acc-btn-1" onclick="toggleAccordion(1)">
+                <span>2. Making Parents Sad or Quarrelling</span>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="acc-panel" id="acc-panel-1">
+                <p style="margin-top:0;">Imam Ali (a.s.) stated directly: &ldquo;One who causes his parents to become sad has indeed committed Uqooq against them&rdquo; (Biharul Anwar 74:64). Imam as-Sadiq also warned that whoever argues disrespectfully with their father suffers humiliation and disgrace (Biharul Anwar 74:71).</p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <button type="button" class="acc-trigger" aria-expanded="false" id="acc-btn-2" onclick="toggleAccordion(2)">
+                <span>3. Hastened Punishment in This World</span>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="acc-panel" id="acc-panel-2">
+                <p style="margin-top:0;">The Messenger of Allah warned that three sins have their punishment hastened in this life rather than deferred solely to the Hereafter: mistreatment/disownment of parents, oppressing people, and ingratitude toward kindness (Biharul Anwar 74:74). Imam as-Sadiq described Uqooq as a grave sin that &ldquo;darkens the skies.&rdquo;</p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <button type="button" class="acc-trigger" aria-expanded="false" id="acc-btn-3" onclick="toggleAccordion(3)">
+                <span>4. Barriers in Death &amp; the Hereafter</span>
+                <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </button>
+              <div class="acc-panel" id="acc-panel-3">
+                <p style="margin-top:0;">A dying youth was unable to utter the Shahadah until his mother—whom he had alienated for six years—forgave him at the Prophet&rsquo;s request (Biharul Anwar 74:75). Other narrations warn that the fragrance of Paradise, detectable from a thousand years&rsquo; distance, will not reach one who severed ties with parents (Biharul Anwar 74:62, 74).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive 5B: Tawbah Path Switcher -->
+        <div class="leaf leaf--sage">
+          <div class="stat-label">Interactive Path of Repentance (Tawbah)</div>
+          <div class="pill-tabs" role="tablist" aria-label="Repentance scenarios">
+            <button type="button" class="pill-tab active" role="tab" aria-selected="true" id="ttab-alive" onclick="selectTawbah('alive')">Parents Are Alive</button>
+            <button type="button" class="pill-tab" role="tab" aria-selected="false" id="ttab-deceased" onclick="selectTawbah('deceased')">After Parents Pass</button>
+          </div>
+          <div class="ivory-callout" id="tawbah-panel" aria-live="polite">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: 5-QUESTION MULTIPLE-CHOICE QUIZ -->
+    <section class="chapter-section" id="sec-quiz" aria-labelledby="h-quiz">
+      <div class="section-header">
+        <div class="section-meta">
+          <span class="chip">Section 06</span>
+          <span class="chip chip--soft">Knowledge Check</span>
+        </div>
+        <h2 id="h-quiz">Check Your Understanding: 5 Questions on Parents in Islam</h2>
+        <p class="section-intro">
+          Test what you have explored across the Quranic verses and Hadith collections. Each option gives tailored feedback grounded in the sources.
+        </p>
+      </div>
+
+      <div class="quiz-shell" id="quiz-container">
+        <div class="quiz-header-bar">
+          <div>
+            <span class="stat-label" id="quiz-step-label" style="margin:0; display:block;">Question 1 of 5</span>
+            <div class="quiz-progress-dots" id="quiz-dots" aria-hidden="true">
+              <span class="q-dot current"></span>
+              <span class="q-dot"></span>
+              <span class="q-dot"></span>
+              <span class="q-dot"></span>
+              <span class="q-dot"></span>
+            </div>
+          </div>
+          <span class="score-badge" id="quiz-score-badge" aria-live="polite">Score: 0 / 5</span>
+        </div>
+
+        <div class="quiz-card" id="quiz-card">
+          <h3 class="quiz-q-text" id="quiz-q-text"></h3>
+          <div class="quiz-options" id="quiz-options"></div>
+          <div class="quiz-feedback" id="quiz-feedback" aria-live="polite"></div>
+
+          <div class="quiz-footer">
+            <span id="quiz-hint" style="font-size:0.875rem; color: var(--on-surface-variant);">Select one of the three options above to see feedback.</span>
+            <button type="button" class="btn btn-primary" id="quiz-next-btn" onclick="nextQuizQuestion()" disabled>
+              Next Question <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAIN-TEXT SOURCES ATTRIBUTION FOOTER -->
+    <footer class="sources-footer">
+      <strong>Primary Source Material &amp; Attributions</strong>
+      <p style="margin:0;">
+        Compiled from the provided study notebook sources: &ldquo;How to Be Dutiful to Parents in Islam&rdquo; (Islam Question &amp; Answer, Question 13783), &ldquo;Will You Be Forgiven If You Mistreat Your Parents in Islam?&rdquo; (Islam Question &amp; Answer, Question 232245), &ldquo;Understanding Parents in Islam&rdquo; (notebook summary), and &ldquo;The Ahadith, The Traditions | Forty Ahadith on Parents&rdquo; (Al-Islam.org), citing the Noble Quran, Sahih al-Bukhari, Sahih Muslim, Sunan Ibn Majah, Biharul Anwar, Al-Kafi, Kanzul &rsquo;Ummal, and Tafsir commentaries by al-Tabari, Ibn Kathir, al-Sa&rsquo;di, and Ibn Hajar.
+      </p>
+    </footer>
+
+  </main>
+
+  <script>
+    // =========================================================================
+    // DATA OBJECTS (Backtick template literals for safe string escaping)
+    // =========================================================================
+
+    const VERSES = {
+      isra: {
+        arabic: `وَقَضَىٰ رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا ۚ إِمَّا يَبْلُغَنَّ عِندَكَ الْكِبَرَ أَحَدُهُمَا أَوْ كِلَاهُمَا فَلَا تَقُل لَّهُمَا أُفٍّ وَلَا تَنْهَرْهُمَا وَقُل لَّهُمَا قَوْلًا كَرِيمًا`,
+        translation: `“And your Lord has decreed that you worship none but Him, and that you be dutiful to your parents. If one or both of them attain old age in your life, say not to them a word of disrespect (‘uff’), nor shout at them, but address them in terms of honour. And lower unto them the wing of submission and humility through mercy, and say: ‘My Lord! Bestow on them Your Mercy as they did bring me up when I was young.’”`,
+        commentary: `Notice the sequencing: right after Tawhid (worshipping Allah alone), Allah places kindness to parents—and forbids even “uff,” the smallest sigh of frustration, especially when parents grow elderly and dependent. Shaykh al-Sa'di notes this du'a applies both while they live and after they pass.`,
+        ref: `Quran — Surah Al-Isra 17:23–24 & Tafsir al-Sa'di`
+      },
+      luqman: {
+        arabic: `أَنِ اشْكُرْ لِي وَلِوَالِدَيْكَ إِلَيَّ الْمَصِيرُ ۖ وَإِن جَاهَدَاكَ عَلَىٰ أَن تُشْرِكَ بِي مَا لَيْسَ لَكَ بِهِ عِلْمٌ فَلَا تُطِعْهُمَا ۖ وَصَاحِبْهُمَا فِي الدُّنْيَا مَعْرُوفًا`,
+        translation: `“Be grateful to Me and to your parents; to Me is the final destination. But if they strive to make you associate with Me that of which you have no knowledge, do not obey them—yet accompany them in this world with appropriate kindness.”`,
+        commentary: `Gratitude to Allah and gratitude to parents are paired together. Crucially, even if parents pressure a child toward sin or shirk, obedience stops at disobedience to the Creator—while respectful, kind companionship remains mandatory (also echoed in Al-Ankabut 29:8 and Al-Ahqaf 46:15).`,
+        ref: `Quran — Surah Luqman 31:14–15 & Al-Ankabut 29:8`
+      },
+      maryam: {
+        arabic: `وَبَرًّا بِوَالِدَيْهِ وَلَمْ يَكُن جَبَّارًا عَصِيًّا`,
+        translation: `Regarding Prophet Yahya (John): “And dutiful towards his parents, and he was neither arrogant nor disobedient.” And regarding Prophet ‘Isa (Jesus): “And He has enjoined on me Salah and Zakah as long as I live, and dutiful to my mother, and made me not arrogant, unblest.”`,
+        commentary: `Al-Tabari explains that Yahya was quick to obey, loving, and never let ego stand in the way of serving Allah or his parents. Ibn Kathir emphasizes that ‘Isa’s duty to his mother appears directly alongside prayer and charity—proving humility to parents is a prophetic trait.`,
+        ref: `Quran — Surah Maryam 19:12–15, 30–32; Tafsir al-Tabari & Ibn Kathir`
+      }
+    };
+
+    const PAIRS = {
+      deeds: {
+        title: `Highest Ranking Deeds in Both Sunni & Shia Collections`,
+        body: `When Ibn Mas‘ud and Ibn ‘Abbas asked the Prophet (peace be upon him): “Which deed does Allah love most?” he answered: (1) Offering Salah on time, then (2) Being good and dutiful to parents (Birr al-Walidayn), and only then (3) Jihad in the way of Allah. Imam Ja‘far as-Sadiq narrated the exact same three-tier order.`,
+        ref: `Sahih al-Bukhari 5970; Biharul Anwar 74:70, 85`
+      },
+      jihad: {
+        title: `Staying With Parents Outweighs a Year of Jihad`,
+        body: `A man asked the Prophet if he should join an expedition for Jihad. The Prophet asked, “Are your parents alive?” When the man replied yes, the Prophet told him: “Then do Jihad by taking care of them.” In another narration for elderly, attached parents, the Prophet declared that spending one day and night comforting them is better than an entire year of Jihad.`,
+        ref: `Sahih al-Bukhari 5972; Biharul Anwar 74:82`
+      },
+      paired: {
+        title: `Imam al-Ridha’s Principle: Three Paired Obligations`,
+        body: `Imam al-Ridha explained that Allah linked three duties with three partners: Salah with Zakah (prayer without charity is rejected); Gratitude to Allah with gratitude to parents (one ungrateful to parents is deemed ungrateful to Allah); and Righteousness (Taqwa) with maintaining kinship ties (Silah Rahim).`,
+        ref: `Biharul Anwar 74:77`
+      }
+    };
+
+    const MOTHER_STEPS = {
+      1: {
+        heading: `Question 1: “O Messenger of Allah, to whom should I show goodness?”`,
+        answer: `The Prophet replied: “Towards your mother.”`,
+        insight: `A mother’s priority begins with the physical and emotional toll described in Surah Luqman 31:14—carrying the child in “weakness upon weakness” and nurturing them through infancy.`
+      },
+      2: {
+        heading: `Question 2: “And after that, towards whom?”`,
+        answer: `The Prophet replied again: “Your mother.”`,
+        insight: `Repeating the answer emphasizes that maternal care is not an equal split—it carries distinct hardship, sleepless nights, and selfless sacrifice that require deliberate recognition.`
+      },
+      3: {
+        heading: `Question 3: “And after that?”`,
+        answer: `For a third time, the Prophet replied: “Your mother.”`,
+        insight: `Three consecutive confirmations establish a clear ethical benchmark for young adults: prioritizing check-ins, patience, and gentle tone with one’s mother comes first.`
+      },
+      4: {
+        heading: `Question 4: “And then after that?”`,
+        answer: `Only on the fourth ask did the Prophet reply: “Then towards your father.”`,
+        insight: `Both parents hold immense, obligatory rights—the father’s right to deep respect and support follows immediately after this threefold maternal honour (Biharul Anwar 74:49).`
+      }
+    };
+
+    const FLIPCARDS = [
+      {
+        front: `A man confessed he had committed every grave evil and asked if repentance was possible. Tap to read the Prophet’s response.`,
+        back: `The Prophet asked if his parents were alive. Hearing his father was alive, he said: “Go and be good to him.” When the man walked away, the Prophet murmured: “If only his mother had been alive”—signalling how powerfully serving a mother unlocks Allah’s forgiveness (Biharul Anwar 74:82).`
+      },
+      {
+        front: `How should a son or daughter speak, walk, sit, and protect a father’s honour in public? Tap to reveal the four rules.`,
+        back: `The Prophet taught four concrete rights of the father: (1) Do not call him casually by his first name, (2) Do not walk ahead of him, (3) Do not sit before he is seated, and (4) Do not act in ways that cause people to insult or abuse him (Biharul Anwar 74:45).`
+      },
+      {
+        front: `Asma bint Abi Bakr asked the Prophet whether she could maintain kind ties with her polytheist mother. Tap to read the ruling.`,
+        back: `The Prophet answered immediately: “Yes, keep good ties with your mother” (Sahih Bukhari 5978–5979). Imam ar-Ridha and Imam al-Baqir confirmed that kindness to parents is obligatory whether they are righteous, unfair, or non-Muslim—only obeying sinful commands is forbidden (Biharul Anwar 74:56, 72).`
+      },
+      {
+        front: `Does how you treat your parents at 18 affect your own future family? Tap to see the Prophetic principle.`,
+        back: `The Prophet taught: “Be good toward your parents, and your children will be good toward you” (Kanzul ‘Ummal 16:466). Dutifulness sets a living pattern of mercy across generations.`
+      }
+    ];
+
+    const LIFE_STAGES = {
+      living: {
+        title: `Everyday Dutifulness While They Live`,
+        summary: `When Abu Wallad asked Imam as-Sadiq what “Birr” and “Ihsan” mean in practice, the Imam answered: “Accompany them gracefully, and never make them have to ask you for something they need.” It means noticing needs early—putting down your phone, softening your voice, and greeting them warmly like Abu Hurayrah did every time he entered or left his mother’s door.`,
+        items: [
+          { id: `l1`, title: `Anticipate needs before being asked`, detail: `Imam as-Sadiq’s core definition of Ihsan (Biharul Anwar 74:79).` },
+          { id: `l2`, title: `Lower your voice and gaze with compassion`, detail: `Never raise your voice or hand above theirs (Biharul Anwar 74:79).` },
+          { id: `l3`, title: `Greet them warmly & make du‘a daily`, detail: `Abu Hurayrah greeted his mother with salam and mercy every morning and evening (IslamQA 13783).` },
+          { id: `l4`, title: `Disconnect from distractions to be present`, detail: `Avoid ignoring them for screens or friends when they want to talk (Parents in Islam).` }
+        ]
+      },
+      passed: {
+        title: `Honouring Parents After Their Passing`,
+        summary: `Allah keeps the door of Birr open after parents die. When a person passes away, ongoing deeds end except three—one of which is a righteous child who prays for them (Muslim 1631). Through du‘a, settling obligations, charity, and maintaining their friendships, a child continues lifting their parents’ status.`,
+        items: [
+          { id: `p1`, title: `Make abundant du‘a & seek forgiveness for them`, detail: `Raises a parent’s rank in Paradise (Ibn Majah 3660; Al-Isra 17:24).` },
+          { id: `p2`, title: `Pay off their debts & fulfill trusts`, detail: `Clear any financial obligations or seek pardon if they wronged anyone (IslamQA 13783, 232245).` },
+          { id: `p3`, title: `Give charity, fast, or perform Hajj on their behalf`, detail: `Both the parents and the child receive the reward (Biharul Anwar 74:46; Kanzul ‘Ummal 16:468).` },
+          { id: `p4`, title: `Honour their friends & visit their graves`, detail: `Ibn ‘Umar gave his own donkey and turban to his father’s Bedouin friend (Muslim 2552; Kanzul ‘Ummal 16:468).` }
+        ]
+      }
+    };
+
+    const MATRIX_ROWS = [
+      { cat: `speech`, duty: `Address parents in terms of honour & gentleness`, avoid: `Saying “uff”, shouting, or speaking harshly`, source: `Quran Al-Isra 17:23` },
+      { cat: `speech`, duty: `Look at parents with mercy, love, and softness`, avoid: `Casting a hard, stern, or hateful gaze`, source: `Biharul Anwar 74:73, 79; Al-Kafi 4:50` },
+      { cat: `service`, duty: `Obey them swiftly in all lawful requests`, avoid: `Obeying if they command sin or shirk`, source: `Quran Luqman 31:15; IslamQA 13783` },
+      { cat: `service`, duty: `Anticipate what they need before they ask`, avoid: `Waiting until they feel awkward asking`, source: `Biharul Anwar 74:79` },
+      { cat: `service`, duty: `Walk behind your father and sit after him`, avoid: `Calling him by name or walking ahead`, source: `Biharul Anwar 74:45` },
+      { cat: `after`, duty: `Pray constantly for their mercy & forgiveness`, avoid: `Forgetting them in daily prayers after death`, source: `Ibn Majah 3660; Muslim 1631` },
+      { cat: `after`, duty: `Uphold ties with their friends and loved ones`, avoid: `Cutting off people your parents cherished`, source: `Sahih Muslim 2552` },
+      { cat: `after`, duty: `Settle debts, sponsor Hajj, and give charity`, avoid: `Leaving unpaid debts or trusts unresolved`, source: `Kanzul ‘Ummal 16:468; IslamQA 13783` }
+    ];
+
+    const HORIZONS = {
+      dunya: {
+        title: `Tangible Blessings in This Life (Dunya)`,
+        points: [
+          { label: `Extended Lifespan & Sustenance`, text: `The Prophet said: “Whoever wishes to have their lifespan extended and livelihood increased should be good to their parents and maintain kinship ties” (Kanzul ‘Ummal 16:475; Sahih Bukhari 5985).` },
+          { label: `Muyassir’s Delayed End`, text: `Imam as-Sadiq told Muyassir that his appointed death had drawn near multiple times, yet Allah delayed it each time because of his kindness to relatives—advising him: “If you want your life increased, be kind to your parents” (Biharul Anwar 74:84).` },
+          { label: `Answered Prayers & Family Harmony`, text: `A child’s du‘a is deeply heard, and treating parents well invites the same loyalty from one’s own future children (Kanzul ‘Ummal 16:466).` }
+        ]
+      },
+      akhirah: {
+        title: `Supreme Elevations in the Hereafter (Akhirah)`,
+        points: [
+          { label: `Two Open Doors to Paradise`, text: `“Whoever wakes up obedient to Allah regarding both parents has two doors of Paradise opened for them; if one parent, then one door” (Kanzul ‘Ummal 16:67).` },
+          { label: `Highest Station (A‘la ‘Illiyyin)`, text: `The servant obedient to parents and Lord will reside in the most exalted stations on the Day of Judgment (Kanzul ‘Ummal 16:467).` },
+          { label: `Shelter Under Allah’s Throne (‘Arsh)`, text: `Prophet Musa saw a man shaded beneath Allah’s Throne and learned it was because he had been kind to his parents and avoided slander (Biharul Anwar 74:65).` }
+        ]
+      }
+    };
+
+    const REWARD_ACTS = {
+      gaze: {
+        act: `Loving Gaze`,
+        reward: `Accepted Hajj Reward`,
+        desc: `“Every righteous child who casts a look of mercy and affection upon his parents is granted, for every look, rewards equivalent to an accepted Hajj”—even if done a hundred times a day (Biharul Anwar 74:73, 80).`
+      },
+      doors: {
+        act: `Daily Obedience`,
+        reward: `2 Doors of Paradise`,
+        desc: `Waking up dutiful toward Allah in serving both parents opens two doors of Paradise—making ordinary mornings an act of worship (Kanzul ‘Ummal 16:67).`
+      },
+      dua: {
+        act: `Child’s Du‘a`,
+        reward: `Raised Rank in Jannah`,
+        desc: `A parent will ask in Paradise, “Where did this elevation come from?” and be told: “From your child praying for your forgiveness” (Sunan Ibn Majah 3660).`
+      },
+      throne: {
+        act: `Gentle Loyalty`,
+        reward: `Shade of the ‘Arsh`,
+        desc: `Prophet Musa observed a believer sheltered directly beneath Allah’s Throne because he honoured his parents and never engaged in slander (Biharul Anwar 74:65).`
+      }
+    };
+
+    const TAWBAH = {
+      alive: {
+        title: `If Your Parents Are Still Alive`,
+        lead: `Allah promises in Surah Az-Zumar (39:53): “Do not despair of the mercy of Allah. Indeed, Allah forgives all sins.” Follow Imam an-Nawawi’s three conditions of sincere repentance plus active restoration:`,
+        steps: [
+          `1. Stop any disrespectful speech, tone, or neglect immediately.`,
+          `2. Feel genuine remorse (Nadam) for the hurt caused.`,
+          `3. Firmly resolve never to repeat the mistreatment.`,
+          `4. Ask their forgiveness gently, soften your attitude, and begin serving them proactively today.`
+        ]
+      },
+      deceased: {
+        title: `If Your Parents Have Already Passed Away`,
+        lead: `Many young people fear repentance is impossible once parents die. The Prophet explicitly resolved this: “Regret (Nadam) is repentance” (Ibn Majah 4252). Ibn al-Qayyim and Ibn Taymiyyah affirmed that sincere regret makes Tawbah fully valid even when direct apology is no longer possible.`,
+        steps: [
+          `1. Turn to Allah with deep regret and ask His pardon (Ash-Shura 42:25).`,
+          `2. Multiply du‘a and istighfar for them—a righteous child’s prayer continuously elevates them (Muslim 1631; Ibn Majah 3660).`,
+          `3. Give charity, sponsor Hajj/‘Umrah, and settle any debts or unresolved wrongs on their behalf.`,
+          `4. Honour their friends and loved ones as Ibn ‘Umar did for his father’s friend (Muslim 2552).`
+        ]
+      }
+    };
+
+    const QUIZ_DATA = [
+      {
+        q: `1. In Surah Al-Isra (17:23), what command does Allah place immediately after worshipping Him alone, and what is the smallest negative expression forbidden?`,
+        options: [
+          `Being dutiful to parents; forbidding even saying “uff” (a sigh of frustration)`,
+          `Giving regular charity; forbidding speaking loudly in public gatherings`,
+          `Fasting regularly; forbidding disagreeing with elders in any matter`
+        ],
+        correct: 0,
+        feedback: [
+          `Correct! Al-Isra 17:23 pairs worship of Allah directly with Ihsan to parents, forbidding even “uff” or repelling them.`,
+          `Not quite—charity is vital in Islam, but Al-Isra 17:23 specifically pairs Tawhid with parental care and forbids “uff.”`,
+          `Not quite—the verse focuses on parental honour and forbids even “uff,” while Luqman 31:15 notes you do not obey parents if they command sin.`
+        ]
+      },
+      {
+        q: `2. When a man asked the Prophet (peace be upon him) whether he should go out for Jihad while his parents were alive, how did the Prophet respond?`,
+        options: [
+          `He told him to leave immediately and send financial support later`,
+          `He asked if his parents were alive and told him: “Then do Jihad by taking care of them”`,
+          `He advised him to stay only if his father was ill, otherwise Jihad always takes priority`
+        ],
+        correct: 1,
+        feedback: [
+          `Not quite—in Sahih Bukhari 5972, the Prophet prioritized staying to serve living parents over going out for voluntary Jihad.`,
+          `Correct! Both Sahih Bukhari (5972) and Biharul Anwar (74:82) show caring for living parents can outweigh going out for Jihad.`,
+          `Not quite—the Prophet specifically emphasized both parents and even stated comforting attached parents for a day and night beats a year of Jihad.`
+        ]
+      },
+      {
+        q: `3. According to Asma bint Abi Bakr’s narration (Sahih Bukhari 5978–5979) and Surah Luqman (31:15), how must a Muslim treat non-believing or unfair parents?`,
+        options: [
+          `Cut off contact completely to protect one’s faith from any bad influence`,
+          `Obey every single request they make, even if it contradicts Islamic law`,
+          `Refuse to obey commands to sin or commit shirk, yet still treat them with kindness and good company`
+        ],
+        correct: 2,
+        feedback: [
+          `Not quite—the Prophet explicitly told Asma: “Yes, keep good ties with your mother,” even though her mother was a polytheist.`,
+          `Not quite—Islam draws a clear line: “There is no obedience to any created being if it involves disobedience to the Creator.”`,
+          `Correct! Kindness, respect, and good companionship remain obligatory regardless of parents’ faith or fairness, stopping only at obeying sin.`
+        ]
+      },
+      {
+        q: `4. Which of the following is highlighted in the Hadith (Sahih Muslim 2552) as a great way to honour parents after they have passed away?`,
+        options: [
+          `Upholding ties of kindness with their friends and loved ones, alongside du‘a, charity, and paying debts`,
+          `Accepting that all opportunities for Birr end permanently at the moment of death`,
+          `Avoiding speaking about their friends so one can focus exclusively on personal worship`
+        ],
+        correct: 0,
+        feedback: [
+          `Correct! Ibn ‘Umar gave his own donkey and turban to a Bedouin simply because the man’s father had been a friend of ‘Umar, citing Muslim 2552.`,
+          `Not quite—Allah keeps the door of Birr open after death through du‘a, charity, paying debts, Hajj on their behalf, and honouring their friends.`,
+          `Not quite—the Prophet specifically praised maintaining ties with one’s father’s friends after he passes away.`
+        ]
+      },
+      {
+        q: `5. If someone mistreated their parents and only realized their mistake after the parents passed away, what do the scholars and Hadith teach about repentance?`,
+        options: [
+          `Repentance is no longer valid because an apology cannot be delivered in person`,
+          `Sincere regret itself counts as repentance (“Regret is repentance”), paired with du‘a and righteous deeds on their behalf`,
+          `They must wait for a dream confirmation from their parents before seeking Allah’s forgiveness`
+        ],
+        correct: 1,
+        feedback: [
+          `Not quite—both Ibn al-Qayyim and Ibn Taymiyyah affirmed that Tawbah remains valid when the means to repeat or undo an act have passed.`,
+          `Correct! Grounded in Az-Zumar 39:53 and Ibn Majah 4252 (“Regret is repentance”), sincere remorse plus ongoing du‘a, charity, and debt repayment restores hope.`,
+          `Not quite—Islam relies on sincere repentance to Allah (Az-Zumar 39:53) and righteous actions for parents, never waiting on dreams.`
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // STATE & INTERACTION FUNCTIONS (All hoisted function declarations)
+    // =========================================================================
+
+    const flipState = [false, false, false, false];
+    const checkedItems = { l1: false, l2: false, l3: false, l4: false, p1: false, p2: false, p3: false, p4: false };
+    let currentLifeStage = 'living';
+    let quizIndex = 0;
+    let quizScore = 0;
+    const quizAnswered = [null, null, null, null, null];
+    const quizResults = [null, null, null, null, null];
+
+    function selectVerse(key) {
+      const data = VERSES[key];
+      const panel = document.getElementById('verse-panel');
+      if (!data || !panel) return;
+
+      ['isra', 'luqman', 'maryam'].forEach(function (k) {
+        const btn = document.getElementById('vtab-' + k);
+        if (btn) {
+          const active = k === key;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        }
+      });
+
+      panel.innerHTML = `
+        <p class="arabic-line" lang="ar" dir="rtl">${data.arabic}</p>
+        <p class="quote-text">${data.translation}</p>
+        <p style="margin:0 0 var(--space-sm); color: var(--on-surface-variant); font-size:0.95rem;">${data.commentary}</p>
+        <span class="source-tag">${data.ref}</span>
+      `;
+    }
+
+    function selectPair(key) {
+      const data = PAIRS[key];
+      const panel = document.getElementById('pair-detail');
+      if (!data || !panel) return;
+
+      ['deeds', 'jihad', 'paired'].forEach(function (k) {
+        const btn = document.getElementById('pbtn-' + k);
+        if (btn) btn.classList.toggle('active', k === key);
+      });
+
+      panel.innerHTML = `
+        <h3>${data.title}</h3>
+        <p style="margin:0 0 var(--space-sm); color: var(--on-surface-variant); font-size:0.95rem;">${data.body}</p>
+        <span class="source-tag">${data.ref}</span>
+      `;
+    }
+
+    function selectMotherStep(step) {
+      const data = MOTHER_STEPS[step];
+      const panel = document.getElementById('mother-step-panel');
+      if (!data || !panel) return;
+
+      [1, 2, 3, 4].forEach(function (n) {
+        const btn = document.getElementById('mstep-' + n);
+        if (btn) btn.classList.toggle('active', n === step);
+      });
+
+      panel.innerHTML = `
+        <span class="source-tag">Step ${step} of 4 — Biharul Anwar 74:49</span>
+        <h3 style="margin-top: var(--space-xs);">${data.heading}</h3>
+        <p class="quote-text" style="color: var(--primary); font-size: 1.15rem;">${data.answer}</p>
+        <p style="margin:0; color: var(--on-surface-variant); font-size:0.95rem;">${data.insight}</p>
+      `;
+    }
+
+    function toggleFlip(idx) {
+      const card = document.getElementById('flip-' + idx);
+      const body = document.getElementById('flip-body-' + idx);
+      const cta = document.getElementById('flip-cta-' + idx);
+      const item = FLIPCARDS[idx];
+      if (!card || !body || !cta || !item) return;
+
+      flipState[idx] = !flipState[idx];
+      const isFlipped = flipState[idx];
+      card.classList.toggle('flipped', isFlipped);
+      card.setAttribute('aria-pressed', isFlipped ? 'true' : 'false');
+      body.textContent = isFlipped ? item.back : item.front;
+      cta.textContent = isFlipped ? 'Back to Prompt' : 'Reveal Hadith';
+    }
+
+    function selectLifeStage(stage) {
+      currentLifeStage = stage;
+      const data = LIFE_STAGES[stage];
+      const summary = document.getElementById('life-stage-summary');
+      const listEl = document.getElementById('practice-checklist');
+      if (!data || !summary || !listEl) return;
+
+      ['living', 'passed'].forEach(function (s) {
+        const btn = document.getElementById('ltab-' + s);
+        if (btn) {
+          const active = s === stage;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        }
+      });
+
+      summary.innerHTML = `
+        <h3>${data.title}</h3>
+        <p style="margin:0; color: var(--on-surface-variant); font-size:0.95rem;">${data.summary}</p>
+      `;
+
+      renderChecklist();
+    }
+
+    function renderChecklist() {
+      const data = LIFE_STAGES[currentLifeStage];
+      const listEl = document.getElementById('practice-checklist');
+      const counterEl = document.getElementById('checklist-counter');
+      if (!data || !listEl) return;
+
+      let html = '';
+      let doneCount = 0;
+      data.items.forEach(function (item) {
+        const isChecked = !!checkedItems[item.id];
+        if (isChecked) doneCount += 1;
+        html += `
+          <div class="check-item ${isChecked ? 'checked' : ''}" role="checkbox" tabindex="0" aria-checked="${isChecked}" onclick="toggleCheckItem('${item.id}')" onkeydown="handleCheckKey(event, '${item.id}')">
+            <span class="check-box" aria-hidden="true">${isChecked ? '&#10003;' : ''}</span>
+            <div>
+              <strong style="display:block; font-size:0.95rem;">${item.title}</strong>
+              <span style="font-size:0.85rem; color: var(--on-surface-variant);">${item.detail}</span>
+            </div>
+          </div>
+        `;
+      });
+      listEl.innerHTML = html;
+      if (counterEl) {
+        counterEl.textContent = `${doneCount} of ${data.items.length} practices marked for reflection`;
+      }
+    }
+
+    function toggleCheckItem(id) {
+      checkedItems[id] = !checkedItems[id];
+      renderChecklist();
+    }
+
+    function handleCheckKey(e, id) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCheckItem(id);
+      }
+    }
+
+    function filterMatrix(cat) {
+      const tbody = document.getElementById('matrix-tbody');
+      if (!tbody) return;
+
+      ['all', 'speech', 'service', 'after'].forEach(function (c) {
+        const btn = document.getElementById('ftab-' + c);
+        if (btn) btn.classList.toggle('active', c === cat);
+      });
+
+      const rows = cat === 'all' ? MATRIX_ROWS : MATRIX_ROWS.filter(function (r) { return r.cat === cat; });
+      tbody.innerHTML = rows.map(function (r) {
+        return `
+          <tr>
+            <td><strong>${r.duty}</strong></td>
+            <td style="color: var(--on-surface-variant);">${r.avoid}</td>
+            <td><span class="source-tag">${r.source}</span></td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function selectHorizon(key) {
+      const data = HORIZONS[key];
+      const panel = document.getElementById('horizon-panel');
+      if (!data || !panel) return;
+
+      ['dunya', 'akhirah'].forEach(function (k) {
+        const btn = document.getElementById('itab-' + k);
+        if (btn) {
+          const active = k === key;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        }
+      });
+
+      const pointsHtml = data.points.map(function (pt) {
+        return `
+          <div style="padding-top: var(--space-sm); border-top: var(--hairline-soft);">
+            <strong style="display:block; color: var(--primary); font-size:0.95rem;">${pt.label}</strong>
+            <p style="margin: 2px 0 0; font-size:0.9375rem; color: var(--on-surface-variant);">${pt.text}</p>
+          </div>
+        `;
+      }).join('');
+
+      panel.innerHTML = `
+        <h3>${data.title}</h3>
+        <div style="display:grid; gap: var(--space-sm);">${pointsHtml}</div>
+      `;
+    }
+
+    function selectRewardAct(key) {
+      const data = REWARD_ACTS[key];
+      const actLabel = document.getElementById('svg-act-label');
+      const rewardLabel = document.getElementById('svg-reward-label');
+      const detail = document.getElementById('reward-act-detail');
+      if (!data || !detail) return;
+
+      ['gaze', 'doors', 'dua', 'throne'].forEach(function (k) {
+        const btn = document.getElementById('act-' + k);
+        if (btn) btn.classList.toggle('active', k === key);
+      });
+
+      if (actLabel) actLabel.textContent = data.act;
+      if (rewardLabel) rewardLabel.textContent = data.reward;
+      detail.innerHTML = `<p style="margin:0; color: var(--on-surface);">${data.desc}</p>`;
+    }
+
+    function toggleAccordion(idx) {
+      const btn = document.getElementById('acc-btn-' + idx);
+      const panel = document.getElementById('acc-panel-' + idx);
+      if (!btn || !panel) return;
+
+      const isOpen = panel.classList.contains('open');
+      panel.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+    }
+
+    function selectTawbah(key) {
+      const data = TAWBAH[key];
+      const panel = document.getElementById('tawbah-panel');
+      if (!data || !panel) return;
+
+      ['alive', 'deceased'].forEach(function (k) {
+        const btn = document.getElementById('ttab-' + k);
+        if (btn) {
+          const active = k === key;
+          btn.classList.toggle('active', active);
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        }
+      });
+
+      const stepsHtml = data.steps.map(function (st) {
+        return `<li style="margin-bottom: var(--space-xs);">${st}</li>`;
+      }).join('');
+
+      panel.innerHTML = `
+        <h3>${data.title}</h3>
+        <p style="margin:0 0 var(--space-sm); font-size:0.95rem; color: var(--on-surface-variant);">${data.lead}</p>
+        <ul style="margin:0; padding-left: 1.25rem; font-size:0.9375rem; color: var(--on-surface);">${stepsHtml}</ul>
+      `;
+    }
+
+    // =========================================================================
+    // QUIZ ENGINE (5 Questions, 3 Options, Option-Specific Feedback, Horizontal Flow)
+    // =========================================================================
+
+    function renderQuizQuestion() {
+      const card = document.getElementById('quiz-card');
+      const stepLabel = document.getElementById('quiz-step-label');
+      const scoreBadge = document.getElementById('quiz-score-badge');
+      const dotsEl = document.getElementById('quiz-dots');
+      if (!card || !stepLabel || !scoreBadge || !dotsEl) return;
+
+      scoreBadge.textContent = `Score: ${quizScore} / ${QUIZ_DATA.length}`;
+
+      let dotsHtml = '';
+      for (let i = 0; i < QUIZ_DATA.length; i += 1) {
+        let cls = 'q-dot';
+        if (i === quizIndex) cls += ' current';
+        else if (quizResults[i] === true) cls += ' done-right';
+        else if (quizResults[i] === false) cls += ' done-wrong';
+        dotsHtml += `<span class="${cls}"></span>`;
+      }
+      dotsEl.innerHTML = dotsHtml;
+
+      if (quizIndex >= QUIZ_DATA.length) {
+        stepLabel.textContent = `Completed (${QUIZ_DATA.length} of ${QUIZ_DATA.length})`;
+        let summaryMsg = `Review the sections above to deepen your mastery of the Quranic and Hadith sources.`;
+        if (quizScore === 5) {
+          summaryMsg = `Outstanding work—you mastered every Quranic principle, Hadith ranking, and Tawbah ruling covered in this guide.`;
+        } else if (quizScore >= 3) {
+          summaryMsg = `Solid grasp of the core teachings on Birr al-Walidayn! Feel free to retake the quiz or revisit any section.`;
+        }
+        card.innerHTML = `
+          <span class="source-tag">Final Score Summary</span>
+          <h3 class="quiz-q-text">You scored ${quizScore} out of ${QUIZ_DATA.length}</h3>
+          <p style="margin:0; color: var(--on-surface-variant);">${summaryMsg}</p>
+          <div class="quiz-footer">
+            <button type="button" class="btn btn-secondary" onclick="resetQuiz()">
+              Retake Quiz <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+            </button>
+          </div>
+        `;
+        if (window.lucide && typeof window.lucide.createIcons === 'function') {
+          window.lucide.createIcons();
+        }
+        return;
+      }
+
+      const item = QUIZ_DATA[quizIndex];
+      const chosen = quizAnswered[quizIndex];
+      const hasAnswered = chosen !== null;
+      stepLabel.textContent = `Question ${quizIndex + 1} of ${QUIZ_DATA.length}`;
+
+      const letters = ['A', 'B', 'C'];
+      const optionsHtml = item.options.map(function (optText, idx) {
+        let stateClass = '';
+        if (hasAnswered) {
+          if (idx === item.correct) stateClass = 'is-correct';
+          else if (idx === chosen) stateClass = 'is-wrong';
+        }
+        return `
+          <button type="button" class="quiz-opt ${stateClass}" onclick="chooseQuizOption(${idx})" ${hasAnswered ? 'disabled' : ''}>
+            <span class="opt-letter">${letters[idx]}</span>
+            <span>${optText}</span>
+          </button>
+        `;
+      }).join('');
+
+      let fbClass = '';
+      let fbContent = '';
+      if (hasAnswered) {
+        const isRight = chosen === item.correct;
+        fbClass = isRight ? 'show fb-right' : 'show fb-wrong';
+        fbContent = `
+          <strong style="color: ${isRight ? 'var(--positive)' : 'var(--error)'};">${isRight ? 'Correct Answer' : 'Review This Point'}</strong>
+          <span style="font-size:0.95rem;">${item.feedback[chosen]}</span>
+        `;
+      }
+
+      const nextLabel = quizIndex === QUIZ_DATA.length - 1 ? 'View Final Score' : 'Next Question';
+
+      card.innerHTML = `
+        <h3 class="quiz-q-text">${item.q}</h3>
+        <div class="quiz-options">${optionsHtml}</div>
+        <div class="quiz-feedback ${fbClass}" id="quiz-feedback" aria-live="polite">${fbContent}</div>
+        <div class="quiz-footer">
+          <span id="quiz-hint" style="font-size:0.875rem; color: var(--on-surface-variant);">${hasAnswered ? 'Option selected—continue horizontally to the next step.' : 'Select one of the three options above to see feedback.'}</span>
+          <button type="button" class="btn btn-primary" id="quiz-next-btn" onclick="nextQuizQuestion()" ${hasAnswered ? '' : 'disabled'}>
+            ${nextLabel} <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      `;
+
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }
+
+    function chooseQuizOption(optIdx) {
+      if (quizAnswered[quizIndex] !== null) return;
+      const item = QUIZ_DATA[quizIndex];
+      if (!item) return;
+
+      quizAnswered[quizIndex] = optIdx;
+      const isRight = optIdx === item.correct;
+      quizResults[quizIndex] = isRight;
+      if (isRight) quizScore += 1;
+
+      renderQuizQuestion();
+    }
+
+    function nextQuizQuestion() {
+      if (quizAnswered[quizIndex] === null) return;
+      quizIndex += 1;
+      renderQuizQuestion();
+    }
+
+    function resetQuiz() {
+      quizIndex = 0;
+      quizScore = 0;
+      for (let i = 0; i < QUIZ_DATA.length; i += 1) {
+        quizAnswered[i] = null;
+        quizResults[i] = null;
+      }
+      renderQuizQuestion();
+    }
+
+    // =========================================================================
+    // SCROLL PROGRESS BAR & ACTIVE SECTION PILL
+    // =========================================================================
+
+    function updateScrollProgress() {
+      const fill = document.getElementById('reading-progress-fill');
+      const pctLabel = document.getElementById('progress-pct');
+      const doc = document.documentElement;
+      const scrollTop = window.scrollY || doc.scrollTop || 0;
+      const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+      const pct = Math.min(100, Math.max(0, Math.round((scrollTop / maxScroll) * 100)));
+
+      if (fill) fill.style.width = pct + '%';
+      if (pctLabel) pctLabel.textContent = pct + '% read';
+
+      const sections = ['sec-rank', 'sec-mothers', 'sec-practice', 'sec-impact', 'sec-tawbah', 'sec-quiz'];
+      let activeId = sections[0];
+      sections.forEach(function (id) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 160) activeId = id;
+        }
+      });
+
+      const pills = document.querySelectorAll('#nav-pills .nav-pill');
+      pills.forEach(function (pill) {
+        const href = pill.getAttribute('href');
+        pill.classList.toggle('active', href === '#' + activeId);
+      });
+    }
+
+    // =========================================================================
+    // INITIALIZATION
+    // =========================================================================
+
+    document.addEventListener('DOMContentLoaded', function () {
+      selectVerse('isra');
+      selectPair('deeds');
+      selectMotherStep(1);
+      selectLifeStage('living');
+      filterMatrix('all');
+      selectHorizon('dunya');
+      selectRewardAct('gaze');
+      selectTawbah('alive');
+      renderQuizQuestion();
+      updateScrollProgress();
+
+      window.addEventListener('scroll', updateScrollProgress, { passive: true });
+      window.addEventListener('resize', updateScrollProgress, { passive: true });
+
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
